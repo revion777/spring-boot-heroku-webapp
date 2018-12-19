@@ -29,11 +29,11 @@ public class CustomerService {
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                Customer cust = new Customer();
-                cust.setClientId(rs.getInt(1));
-                cust.setFirstName(rs.getString(2));
-                cust.setLastName(rs.getString(3));
-                customers.add(cust);
+                Customer customer = new Customer();
+                customer.setClientId(rs.getInt(1));
+                customer.setFirstName(rs.getString(2));
+                customer.setLastName(rs.getString(3));
+                customers.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,9 +74,9 @@ public class CustomerService {
     @Bean
     public DataSource dataSource() {
         HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl("jdbc:postgresql://ec2-54-217-223-175.eu-west-1.compute.amazonaws.com:5432/d9ri1l4crrhsn4");
-        ds.setUsername("pqcasidpkfxvqp");
-        ds.setPassword("5e74333bc2d5c4834afa9e268ffc816ecf49984549d4bb5a73483a623294b764");
+        ds.setJdbcUrl("jdbc:postgresql://ec2-54-217-223-175.eu-west-1.compute.amazonaws.com:5432/ddl9l28v6nqbcm");
+        ds.setUsername("afptgrkqeonorn");
+        ds.setPassword("7b20ec3f73326537a6ae7b90b6a422bcd76e59560853644c4f414e355eebc4ec");
 
         return new HikariDataSource(ds);
     }
