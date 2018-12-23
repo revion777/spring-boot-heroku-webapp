@@ -3,7 +3,6 @@ package com.revion.controller;
 import com.revion.message.Response;
 import com.revion.service.CustomerService;
 import com.revion.model.Customer;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +15,10 @@ public class RestWebController {
     private CustomerService customerService = new CustomerService();
 
     @GetMapping(value = "/all")
-    public List<Customer> getCustomers() {
+    public Response getCustomers() {
         System.out.println("[inside GET]");
 
-        return customerService.getAllCustomers();
+        return new Response("Done", customerService.getAllCustomers());
     }
 
     @PostMapping(value = "/save")
