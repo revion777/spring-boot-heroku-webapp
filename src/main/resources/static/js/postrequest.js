@@ -14,7 +14,7 @@ $( document ).ready(function() {
     		clientId : $("#clientId").val(),
     		firstName : $("#firstName").val(),
     		lastName :  $("#lastName").val()
-    	}
+    	};
     	
     	// DO POST
     	$.ajax({
@@ -25,17 +25,19 @@ $( document ).ready(function() {
 			dataType : 'json',
 			success : function(result) {
 				if(result.status == "Done"){
-					$("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
-												"Post Successfully! <br>" +
-												"---> Информация о клиенте: ID = " + result.data.clientId + ", Имя = " +
-												result.data.firstName + ", Фамилия = " + result.data.lastName + "</p>");
+					$("#postResultDiv").html(
+						"<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
+							"Post Successfully! <br>" +
+							"---> ID = " + result.data.clientId + ", Имя = " +
+							result.data.firstName + ", Фамилия = " + result.data.lastName +
+						"</p>");
 				}else{
 					$("#postResultDiv").html("<strong>Error</strong>");
 				}
 				console.log(result);
 			},
 			error : function(e) {
-				alert("Error!")
+				alert("Error! Please, fill the fields correctly");
 				console.log("ERROR: ", e);
 			}
 		});
@@ -49,4 +51,4 @@ $( document ).ready(function() {
     	$("#firstName").val("");
     	$("#lastName").val("");
     }
-})
+});
